@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+CATEGORIES = ['chinese', 'italian', 'japanese', 'french', 'belgian']
+
+names = ["Coluche", "Samoussa", "Padang", "Kebaba", "Paul", "Mie Câline"]
+addresses = ["Bordeaux", "Paris", "Lyon", "Genève", "Lille", "Marseille"]
+num = ["06..", "07..", "08..", "01..", "02..", "03.."]
+
+for i in [*0..5]
+  Restaurant.create(name: names[i], address: addresses[i], phone_number: num[i], category: CATEGORIES[rand(0..4)])
+end
