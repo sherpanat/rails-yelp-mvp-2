@@ -7,6 +7,14 @@
 <% @reviews.each do |review| %>
   <p><%= review.rating %>: <%= review.content %></p>
 <% end %>
-<%= link_to 'Donner votre avis sur le restaurant', new_restaurant_review_path(@restaurant), class: 'btn btn-info' %>
+<%#= link_to 'Donner votre avis sur le restaurant', new_restaurant_review_path(@restaurant), class: 'btn btn-info' %>
+
+<h1>Votre avis sur <%= @restaurant.name %></h1>
+
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.button :submit %>
+<% end %>
 
 <%= link_to 'Tous les restos', restaurants_path, class: 'btn btn-danger' %>
