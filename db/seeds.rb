@@ -5,12 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-CATEGORIES = ['chinese', 'italian', 'japanese', 'french', 'belgian']
+
+Restaurant.destroy_all
+puts "Destroyed all restaurants and reviews"
 
 names = ["Coluche", "Samoussa", "Padang", "Kebaba", "Paul", "Mie Câline"]
 addresses = ["Bordeaux", "Paris", "Lyon", "Genève", "Lille", "Marseille"]
 num = ["06..", "07..", "08..", "01..", "02..", "03.."]
 
+puts "Creating restaurants and reviews..."
 for i in [*0..5]
-  Restaurant.create(name: names[i], address: addresses[i], phone_number: num[i], category: CATEGORIES[rand(0..4)])
+  Restaurant.create(name: names[i], address: addresses[i], phone_number: num[i], category: Restaurant::CATEGORIES[rand(0..4)])
 end
+puts "...Done!"
